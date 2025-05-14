@@ -1,4 +1,4 @@
-# idée jeu : Amérique contre terroristes
+# idée jeu : combatton
 # c'est un jeu par vagues et les vagues sont prédéfinies
 
 import pygame
