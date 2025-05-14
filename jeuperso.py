@@ -1,5 +1,5 @@
 # idée jeu : combatton
-# c'est un jeu par vagues et les vagues sont prédéfinies
+# c'est un jeu dial le combat
 
 import pygame
 import sys
@@ -7,6 +7,10 @@ import sys
 # Initialisation donc tout ce qui est variable etc
 pygame.init()
 pygame.display.set_caption("America 1")
+images = ["tile000.png", "tile024.png", "tile025.png"]  # Listeux dial les imagees de sprite
+index = 0  # index des images
+nb_frame = 0  # c simple
+animation_frames = 10  # c  le nb de frame avant de changer l'animation
 
 
 desktop_sizes = pygame.display.get_desktop_sizes()
