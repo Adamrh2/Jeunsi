@@ -13,6 +13,7 @@ screen_larg, screen_haut = desktop_sizes[0]  #
 
 screen = pygame.display.set_mode((screen_larg, screen_haut))
 imagecharacter = pygame.image.load("img/tile000.png")
+positionperso = (300,900)
 liste_animation = [
       pygame.image.load("img/tile024.png"),
     pygame.image.load("img/tile025.png"),
@@ -29,7 +30,10 @@ background = pygame.transform.scale(background, (screen_larg, screen_haut))
 def dessiner():
     global imagecharacter ,screen
     screen.blit(background, (0, 0))
+    screen.blit(imagecharacter,positionperso)
+
     pygame.display.flip()
+
 
 def claviersouris():
     global imagecharacter , screen
