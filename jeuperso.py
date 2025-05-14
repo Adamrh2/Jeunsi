@@ -26,17 +26,23 @@ liste_animation = [
 background = pygame.image.load("War.png")
 background = pygame.transform.scale(background, (screen_larg, screen_haut))
 
-# la boucla
-continuer = 1
-while continuer == 1:
+def dessiner():
+    global imagecharacter ,screen
+    screen.blit(background, (0, 0))
+    pygame.display.flip()
 
+def claviersouris():
+    global imagecharacter , screen
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             continuer = 0
 
-    # Afficher le fond
-    screen.blit(background, (0, 0))
-    pygame.display.flip()
+# la boucla
+continuer = 1
+while continuer == 1:
+    dessiner()
+    claviersouris()
+
 
 # Nettoyage
 pygame.quit()
