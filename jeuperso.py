@@ -7,12 +7,12 @@ import sys
 pygame.init()
 pygame.display.set_caption("America 1")
 
-
+imgbougepas : pygame.image.load("img/tile000.png")
 desktop_sizes = pygame.display.get_desktop_sizes()
 screen_larg, screen_haut = desktop_sizes[0]  #
 
 screen = pygame.display.set_mode((screen_larg, screen_haut))
-imagecharacter = pygame.image.load("img/tile000.png")
+imagecharacter = imgbougepas
 positionperso = (300,900)
 liste_animation = [
       pygame.image.load("img/tile024.png"),
@@ -26,6 +26,11 @@ liste_animation = [
 ]
 background = pygame.image.load("War.png")
 background = pygame.transform.scale(background, (screen_larg, screen_haut))
+clock = pygame.time.Clock()
+# variables d'animation : 
+indexanim: 0
+framactuel: 0
+anim_framechange: 5
 
 def dessiner():
     global imagecharacter ,screen , positionperso
@@ -43,6 +48,16 @@ def claviersouris():
     touchesPressees = pygame.key.get_pressed()
     if touchesPressees[pygame.K_RIGHT] == True and positionperso[0]< screen_larg - 46:
         positionperso = ( positionperso[0] + 5 , positionperso[1] )
+        framactuel = framactuel +1
+        if framactuel >= anim_framechange:
+            framactuel = 0
+            indexanim = indexanim + 1
+            if indexanim == len(liste_animation):
+                indexanim = 0
+        imagecharacter = liste_animation[indexanim]
+
+
+
     if touchesPressees[pygame.K_LEFT] == True and positionperso[0]> 0:
         positionperso = ( positionperso[0] -5 , positionperso[1] )
 
@@ -51,6 +66,7 @@ continuer = 1
 while continuer == 1:
     dessiner()
     claviersouris()
+    clock.tick(50)
 
 
 # Nettoyage
