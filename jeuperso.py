@@ -7,7 +7,7 @@ import sys
 pygame.init()
 pygame.display.set_caption("America 1")
 
-imgbougepas : pygame.image.load("img/tile000.png")
+imgbougepas = pygame.image.load("img/tile000.png")
 desktop_sizes = pygame.display.get_desktop_sizes()
 screen_larg, screen_haut = desktop_sizes[0]  #
 
