@@ -43,7 +43,7 @@ def claviersouris():
     touchesPressees = pygame.key.get_pressed()
     if touchesPressees[pygame.K_RIGHT] == True and positionperso[0]< screen_larg - 46:
         positionperso = ( positionperso[0] + 5 , positionperso[1] )
-    if touchesPressees[pygame.K_LEFT] == True and positionperso[0]< screen_larg - 46:
+    if touchesPressees[pygame.K_LEFT] == True and positionperso[0]> 0:
         positionperso = ( positionperso[0] -5 , positionperso[1] )
 
 # la boucla
