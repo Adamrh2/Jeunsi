@@ -28,7 +28,7 @@ background = pygame.image.load("War.png")
 background = pygame.transform.scale(background, (screen_larg, screen_haut))
 
 def dessiner():
-    global imagecharacter ,screen
+    global imagecharacter ,screen , positionperso
     screen.blit(background, (0, 0))
     screen.blit(imagecharacter,positionperso)
 
@@ -36,10 +36,15 @@ def dessiner():
 
 
 def claviersouris():
-    global imagecharacter , screen
+    global imagecharacter , screen , positionperso
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             continuer = 0
+    touchesPressees = pygame.key.get_pressed()
+    if touchesPressees[pygame.K_RIGHT] == True and positionperso[0]< screen_larg - 46:
+        positionperso = ( positionperso[0] + 5 , positionperso[1] )
+    if touchesPressees[pygame.K_left] == True and positionperso[0]< screen_larg - 46:
+        positionperso = ( positionperso[0] -5 , positionperso[1] )
 
 # la boucla
 continuer = 1
