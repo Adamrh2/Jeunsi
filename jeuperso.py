@@ -56,7 +56,7 @@ def claviersouris():
                 indexanim = 0
         imagecharacter = liste_animation[indexanim]
     else :
-        imagecharacter = liste_animation[0]
+        imagecharacter = imgbougepas
         indexanim = 0
         framactuel = 0
 
