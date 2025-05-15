@@ -28,12 +28,12 @@ background = pygame.image.load("War.png")
 background = pygame.transform.scale(background, (screen_larg, screen_haut))
 clock = pygame.time.Clock()
 # variables d'animation : 
-indexanim: 0
-framactuel: 0
-anim_framechange: 5
+indexanim = 0
+framactuel= 0
+anim_framechange= 5
 
 def dessiner():
-    global imagecharacter ,screen , positionperso
+    global imagecharacter ,screen , positionperso , indexanim ,framactuel , anim_framechange
     screen.blit(background, (0, 0))
     screen.blit(imagecharacter,positionperso)
 
@@ -41,7 +41,7 @@ def dessiner():
 
 
 def claviersouris():
-    global imagecharacter , screen , positionperso
+    global imagecharacter , screen , positionperso  , positionperso , indexanim ,framactuel , anim_framechange
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             continuer = 0
