@@ -55,7 +55,10 @@ def claviersouris():
             if indexanim == len(liste_animation):
                 indexanim = 0
         imagecharacter = liste_animation[indexanim]
-
+    else :
+        imagecharacter = liste_animation[0]
+        indexanim = 0
+        framactuel = 0
 
 
     if touchesPressees[pygame.K_LEFT] == True and positionperso[0]> 0:
