@@ -55,14 +55,22 @@ def claviersouris():
             if indexanim == len(liste_animation):
                 indexanim = 0
         imagecharacter = liste_animation[indexanim]
-    else :
+
+    elif touchesPressees[pygame.K_LEFT] == True and positionperso[0]> 0:
+        positionperso = ( positionperso[0] -5 , positionperso[1] )
+        framactuel += 1
+        if framactuel >= anim_framechange:
+            framactuel = 0
+            indexanim += 1
+            if indexanim >= len(liste_animation):
+                indexanim = 0
+        imagecharacter = liste_animation[indexanim]
+
+    else : 
         imagecharacter = imgbougepas
         indexanim = 0
         framactuel = 0
 
-
-    if touchesPressees[pygame.K_LEFT] == True and positionperso[0]> 0:
-        positionperso = ( positionperso[0] -5 , positionperso[1] )
 
 # la boucla
 continuer = 1
