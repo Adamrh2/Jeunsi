@@ -8,12 +8,11 @@ pygame.init()
 pygame.display.set_caption("America 1")
 
 imgbougepas = pygame.image.load("img/tile000.png")
-desktop_sizes = pygame.display.get_desktop_sizes()
-screen_larg, screen_haut = desktop_sizes[0]  #
+desktop_sizes = pygame.display.get_desktop_sizes()  #
 
-screen = pygame.display.set_mode((screen_larg, screen_haut))
+screen = pygame.display.set_mode((800, 800))
 imagecharacter = imgbougepas
-positionperso = (300,900)
+positionperso = (100,700)
 liste_animation = [
       pygame.image.load("img/tile024.png"),
     pygame.image.load("img/tile025.png"),
@@ -24,14 +23,24 @@ liste_animation = [
     pygame.image.load("img/tile030.png"),
     pygame.image.load("img/tile031.png")
 ]
+liste_animation2 = [
+      pygame.image.load("img/tile024b.png"),
+    pygame.image.load("img/tile025b.png"),
+    pygame.image.load("img/tile026b.png"),
+    pygame.image.load("img/tile027b.png"),
+     pygame.image.load("img/tile028b.png"),
+     pygame.image.load("img/tile029b.png"),
+    pygame.image.load("img/tile030b.png"),
+    pygame.image.load("img/tile031b.png")
+]
 background = pygame.image.load("War.png")
-background = pygame.transform.scale(background, (screen_larg, screen_haut))
+background = pygame.transform.scale(background, (800, 800))
 clock = pygame.time.Clock()
 # variables d'animation : 
 indexanim = 0
 framactuel= 0
 anim_framechange= 5
-
+    
 def dessiner():
     global imagecharacter ,screen , positionperso , indexanim ,framactuel , anim_framechange
     screen.blit(background, (0, 0))
@@ -46,7 +55,7 @@ def claviersouris():
         if event.type == pygame.QUIT:
             continuer = 0
     touchesPressees = pygame.key.get_pressed()
-    if touchesPressees[pygame.K_RIGHT] == True and positionperso[0]< screen_larg - 46:
+    if touchesPressees[pygame.K_RIGHT] == True and positionperso[0]< 800 - 46:
         positionperso = ( positionperso[0] + 5 , positionperso[1] )
         framactuel = framactuel +1
         if framactuel >= anim_framechange:
@@ -62,9 +71,9 @@ def claviersouris():
         if framactuel >= anim_framechange:
             framactuel = 0
             indexanim += 1
-            if indexanim >= len(liste_animation):
+            if indexanim >= len(liste_animation2):
                 indexanim = 0
-        imagecharacter = liste_animation[indexanim]
+        imagecharacter = liste_animation2[indexanim]
 
     else : 
         imagecharacter = imgbougepas
