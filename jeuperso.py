@@ -74,6 +74,15 @@ def claviersouris():
             if indexanim >= len(liste_animation2):
                 indexanim = 0
         imagecharacter = liste_animation2[indexanim]
+    
+    #if touchesPressees[pygame.K_UP] == True and positionperso[1] == 700:
+     #   for i in range(10):
+      #      positionperso = (positionperso[0], positionperso[1] - 5)  # Monte
+       # for i in range(10):
+         #   positionperso = (positionperso[0], positionperso[1] + 5) # Redescend"
+
+   # elif touchePressees[pygame.K_SPACE] == True :
+        
 
     else : 
         imagecharacter = imgbougepas
