@@ -13,6 +13,10 @@ desktop_sizes = pygame.display.get_desktop_sizes()  #
 screen = pygame.display.set_mode((800, 800))
 imagecharacter = imgbougepas
 positionperso = (100,700)
+vitesse_y = 0
+gravite = 1
+saut = False
+hauteur_sol = positionperso[1]  
 liste_animation = [
       pygame.image.load("img/tile024.png"),
     pygame.image.load("img/tile025.png"),
@@ -33,6 +37,12 @@ liste_animation2 = [
     pygame.image.load("img/tile030b.png"),
     pygame.image.load("img/tile031b.png")
 ]
+
+liste_anim_hits = [
+    #pygame.image.load(""),
+
+
+]
 background = pygame.image.load("War.png")
 background = pygame.transform.scale(background, (800, 800))
 clock = pygame.time.Clock()
@@ -50,7 +60,7 @@ def dessiner():
 
 
 def claviersouris():
-    global imagecharacter , screen , positionperso  , positionperso , indexanim ,framactuel , anim_framechange
+    global imagecharacter , screen , positionperso  , positionperso , indexanim ,framactuel , anim_framechange , saut , gravite , vitesse_y , hauteur_sol
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             continuer = 0
@@ -75,6 +85,19 @@ def claviersouris():
                 indexanim = 0
         imagecharacter = liste_animation2[indexanim]
     
+    if touchesPressees[pygame.K_UP] and not saut:
+        vitesse_y = -18  # puissant de saut
+        saut = True
+    
+    vitesse_y += gravite
+    positionperso = (positionperso[0], positionperso[1] + vitesse_y)
+
+    if positionperso[1] >= hauteur_sol:
+     positionperso = (positionperso[0], hauteur_sol)
+     vitesse_y = 0
+     saut = False
+
+
     #if touchesPressees[pygame.K_UP] == True and positionperso[1] == 700:
      #   for i in range(10):
       #      positionperso = (positionperso[0], positionperso[1] - 5)  # Monte
@@ -84,11 +107,10 @@ def claviersouris():
    # elif touchePressees[pygame.K_SPACE] == True :
         
 
-    else : 
+    if not (touchesPressees[pygame.K_RIGHT] or touchesPressees[pygame.K_LEFT]):
         imagecharacter = imgbougepas
         indexanim = 0
         framactuel = 0
-
 
 # la boucla
 continuer = 1
