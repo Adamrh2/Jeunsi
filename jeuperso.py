@@ -3,7 +3,7 @@ import sys
 import random
 # INITIALISATION
 pygame.init()
-pygame.display.set_caption("America 1")
+pygame.display.set_caption("Toz1")
 
 imgbougepas = pygame.image.load("img/tile000.png")
 screen = pygame.display.set_mode((800, 800))
